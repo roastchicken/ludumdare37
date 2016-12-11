@@ -59,5 +59,11 @@ function love.draw()
     love.graphics.setColor( { 5, 116, 10 } )
     love.graphics.polygon( "fill", -12, -18, 0, 0, 0, 50, -12, 32 ) -- left
     
+    -- front ribbon
+    
+    love.graphics.setColor( { 147, 9, 9 } )
+    love.graphics.rectangle( "fill", 20, 0, 10, 50 )
+    love.graphics.rectangle( "fill", 0, 20, 50, 10 )
+    
   camera:detach()
 end
