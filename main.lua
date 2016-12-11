@@ -21,5 +21,9 @@ function love.draw()
   love.graphics.rectangle( "fill", -160, 70, 400, 70 ) -- front of conveyor belt
   love.graphics.setColor( { 26, 32, 34 } )
   love.graphics.polygon( "fill", -200, 10, 200, 10, 240, 70, -160, 70 ) -- top of conveyor belt
+  for xPos = 1, 13 do
+    love.graphics.setColor( { 12, 15, 16 } )
+    love.graphics.polygon( "fill", -210 + xPos * 30, 10, -200 + xPos * 30, 10, -160 + xPos * 30, 70, -170 + xPos * 30, 70 ) -- conveyor belt line
+  end
   camera:detach()
 end
