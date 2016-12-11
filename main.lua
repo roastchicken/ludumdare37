@@ -1,3 +1,23 @@
+local function printTable( tbl, name, level )
+  if type( name ) == "number" and level == nil then
+    level = name
+  elseif level == nil then
+    level = 1
+    name = name or "table"
+    print( name .. ":" )
+  end
+  
+  for k, v in pairs( tbl ) do
+    local indent = string.rep( "  ", level )
+    if type( v ) ~= "table" then
+      print( indent .. k .. ": " .. tostring( v ) )
+    else
+      print( indent .. k .. ":" )
+      printTable( v, level + 1 )
+    end
+  end
+end
+
 local lovecallbacknames = {
   "update",
   "load",
