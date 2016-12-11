@@ -14,6 +14,7 @@ function love.load()
   love.window.setMode( 620, 360, { x = 1300, y = 245, msaa = 4 } )
   love.window.setTitle( "Ludum Dare 37 Game" )
   lurker = require( "lurker" )
+  log = require( "log" )
   
   function lurker.exiterrorstate()
     lurker.state = "normal"
