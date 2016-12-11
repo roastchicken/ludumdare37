@@ -1,5 +1,5 @@
 function love.load()
-  love.window.setMode( 620, 360, { x = 1300, y = 245 } )
+  love.window.setMode( 620, 360, { x = 1300, y = 245, msaa = 4 } )
   love.window.setTitle( "Ludum Dare 37 Game" )
   lurker = require( "lurker" )
   love.graphics.setBackgroundColor( { 94, 36, 11 } )
