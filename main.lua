@@ -9,10 +9,11 @@ function love.load()
 end
 
 function love.update( dt )
+  local conveyorMovement = dt * 20
   if conveyorOffset >= 30 then
     conveyorOffset = 0
   end
-  conveyorOffset = conveyorOffset + dt * 20
+  conveyorOffset = conveyorOffset + conveyorMovement
   lurker.update()
 end
 
