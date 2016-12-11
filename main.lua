@@ -25,9 +25,9 @@ function love.draw()
   love.graphics.setColor( { 120, 46, 14 } )
   love.graphics.rectangle( "fill", -310, 0, 620, 180 ) -- floor
   love.graphics.setColor( { 128, 136, 139 } )
-  love.graphics.rectangle( "fill", -200, 10, 400, 70 ) -- back of conveyor belt
+  love.graphics.rectangle( "fill", -200, 10, 400, 70 ) -- back of conveyor
   love.graphics.setColor( { 151, 165, 170 } )
-  love.graphics.rectangle( "fill", -160, 70, 400, 70 ) -- front of conveyor belt
+  love.graphics.rectangle( "fill", -160, 70, 400, 70 ) -- front of conveyor
   love.graphics.setColor( { 26, 32, 34 } )
   drawConveyorBelt()
   love.graphics.setColor( { 12, 15, 16 } )
