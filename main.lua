@@ -5,10 +5,19 @@ function love.load()
   love.graphics.setBackgroundColor( { 94, 36, 11 } )
   Camera = require( "camera" )
   camera = Camera( 0, 0 )
+  conveyorOffset = 0
 end
 
 function love.update( dt )
+  if conveyorOffset >= 30 then
+    conveyorOffset = 0
+  end
+  conveyorOffset = conveyorOffset + dt * 20
   lurker.update()
+end
+
+local function drawConveyorBelt()
+  love.graphics.polygon( "fill", -200, 10, 200, 10, 240, 70, -160, 70 )
 end
 
 function love.draw()
@@ -21,9 +30,17 @@ function love.draw()
   love.graphics.rectangle( "fill", -160, 70, 400, 70 ) -- front of conveyor belt
   love.graphics.setColor( { 26, 32, 34 } )
   love.graphics.polygon( "fill", -200, 10, 200, 10, 240, 70, -160, 70 ) -- top of conveyor belt
-  for xPos = 1, 13 do
-    love.graphics.setColor( { 12, 15, 16 } )
-    love.graphics.polygon( "fill", -210 + xPos * 30, 10, -200 + xPos * 30, 10, -160 + xPos * 30, 70, -170 + xPos * 30, 70 ) -- conveyor belt line
-  end
+  love.graphics.setColor( { 12, 15, 16 } )
+  
+  love.graphics.stencil( drawConveyorBelt, "replace", 1 )
+  love.graphics.setStencilTest( "greater", 0 )
+    
+    -- draw conveyor belt lines
+    for i = 1, 14 do
+      love.graphics.polygon( "fill", -215 + i * 30 - conveyorOffset, 10, -205 + i * 30 - conveyorOffset, 10, -165  + i * 30 - conveyorOffset, 70, -175  + i * 30 - conveyorOffset, 70 )
+    end
+    
+  love.graphics.setStencilTest()
+  
   camera:detach()
 end
