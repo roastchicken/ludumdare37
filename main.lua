@@ -25,6 +25,7 @@ function love.load()
   end
   
   love.graphics.setBackgroundColor( { 94, 36, 11 } )
+  curTime = 0
   Camera = require( "camera" )
   camera = Camera( 0, 0 )
   conveyorOffset = 0
@@ -32,6 +33,7 @@ function love.load()
 end
 
 function love.update( dt )
+  curTime = curTime + dt
   local conveyorMovement = dt * 20
   if conveyorOffset >= 30 then
     conveyorOffset = 0
