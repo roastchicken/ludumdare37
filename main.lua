@@ -13,6 +13,9 @@ end
 
 function love.draw()
   camera:attach()
-  
+  love.graphics.setColor( { 255, 255, 255 } )
+  love.graphics.rectangle( "fill", -25, -50, 50, 100 )
+  love.graphics.setColor( { 21, 152, 11 } )
+  love.graphics.rectangle( "fill", -2000, 50, 4000, 2000 )
   camera:detach()
 end
