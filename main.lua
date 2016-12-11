@@ -3,6 +3,8 @@ function love.load()
   love.window.setTitle( "Ludum Dare 37 Game" )
   lurker = require( "lurker" )
   love.graphics.setBackgroundColor( { 42, 201, 184 } )
+  Camera = require( "camera" )
+  camera = Camera( 0, 0 )
 end
 
 function love.update( dt )
@@ -10,5 +12,7 @@ function love.update( dt )
 end
 
 function love.draw()
+  camera:attach()
   
+  camera:detach()
 end
