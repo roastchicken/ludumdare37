@@ -13,6 +13,7 @@ local lovecallbacknames = {
 function love.load()
   love.window.setMode( 620, 360, { x = 1300, y = 245, msaa = 4 } )
   love.window.setTitle( "Ludum Dare 37 Game" )
+  lume = require( "lume" )
   lurker = require( "lurker" )
   log = require( "log" )
   
