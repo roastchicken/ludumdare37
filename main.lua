@@ -48,5 +48,16 @@ function love.draw()
     
   love.graphics.setStencilTest()
   
+  -- present
+    
+    -- box
+    
+    love.graphics.setColor( { 8, 142, 14 } )
+    love.graphics.polygon( "fill", -12, -18, 38, -18, 50, 0, 0, 0 ) -- top
+    love.graphics.setColor( { 6, 126, 12 } )
+    love.graphics.rectangle( "fill", 0, 0, 50, 50 ) -- front
+    love.graphics.setColor( { 5, 116, 10 } )
+    love.graphics.polygon( "fill", -12, -18, 0, 0, 0, 50, -12, 32 ) -- left
+    
   camera:detach()
 end
