@@ -1,5 +1,5 @@
 function love.load()
-  love.window.setMode( 640, 360, { x = 200, y = 200, borderless = true, centered = false, vsync = false } )
+  love.window.setMode( 1280, 720, { x = 0, y = 0, vsync = false } )
   love.window.setTitle( "Ludum Dare 37 Game" )
 end
 
