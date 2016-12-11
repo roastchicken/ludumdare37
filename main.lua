@@ -9,6 +9,5 @@ function love.update( dt )
 end
 
 function love.draw()
-  love.graphics.setBackgroundColor( { 0, 255, 255 } )
-  love.graphics.circle( "fill", 200, 200, 50  )
+  love.graphics.setBackgroundColor( { 42, 201, 184 } )
 end
