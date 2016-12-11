@@ -22,8 +22,14 @@ end
 
 function love.draw()
   camera:attach()
+  
+  -- floor
+  
   love.graphics.setColor( { 120, 46, 14 } )
-  love.graphics.rectangle( "fill", -310, 0, 620, 180 ) -- floor
+  love.graphics.rectangle( "fill", -310, 0, 620, 180 )
+  
+  -- conveyor
+  
   love.graphics.setColor( { 128, 136, 139 } )
   love.graphics.rectangle( "fill", -200, 10, 400, 70 ) -- back of conveyor
   love.graphics.setColor( { 151, 165, 170 } )
