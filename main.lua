@@ -17,7 +17,7 @@ function love.update( dt )
 end
 
 local function drawConveyorBelt()
-  love.graphics.polygon( "fill", -200, 10, 200, 10, 240, 70, -160, 70 )
+  love.graphics.polygon( "fill", -200, 10, 310, 10, 310, 70, -160, 70 )
 end
 
 function love.draw()
@@ -36,7 +36,7 @@ function love.draw()
   love.graphics.setStencilTest( "greater", 0 )
     
     -- draw conveyor belt lines
-    for i = 1, 14 do
+    for i = 1, 18 do
       love.graphics.polygon( "fill", -215 + i * 30 - conveyorOffset, 10, -205 + i * 30 - conveyorOffset, 10, -165  + i * 30 - conveyorOffset, 70, -175  + i * 30 - conveyorOffset, 70 )
     end
     
