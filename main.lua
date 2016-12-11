@@ -1,7 +1,28 @@
+local lovecallbacknames = {
+  "update",
+  "load",
+  "draw",
+  "mousepressed",
+  "mousereleased",
+  "keypressed",
+  "keyreleased",
+  "focus",
+  "quit",
+}
+
 function love.load()
   love.window.setMode( 620, 360, { x = 1300, y = 245, msaa = 4 } )
   love.window.setTitle( "Ludum Dare 37 Game" )
   lurker = require( "lurker" )
+  
+  function lurker.exiterrorstate()
+    lurker.state = "normal"
+    for _, v in pairs(lovecallbacknames) do
+      love[v] = lurker.funcwrappers[v]
+    end
+    love.graphics.setBackgroundColor( { 94, 36, 11 } )
+  end
+  
   love.graphics.setBackgroundColor( { 94, 36, 11 } )
   Camera = require( "camera" )
   camera = Camera( 0, 0 )
