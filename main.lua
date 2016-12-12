@@ -94,6 +94,10 @@ function love.load()
     if self[ time ] then log.warn( "Overwriting present at time " .. time ) end
     self[ time ] = presentType
   end
+  
+  presentQueue:addPresent( 1, 3 )
+  presentQueue:addPresent( 2, 9 )
+  presentQueue:addPresent( 3, 13 )
 end
 
 function love.update( dt )
