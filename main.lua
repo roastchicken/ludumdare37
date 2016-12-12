@@ -51,6 +51,14 @@ function love.load()
   camera = Camera( 0, 0 )
   conveyorOffset = 0
   presentOffset = 0
+  presentQueue = {}
+  
+  function presentQueue:addPresent( presentType, delay )
+    delay = delay or 0
+    local time = lume.round( curTime + delay, 0.1 )
+    if self[ time ] then log.warn( "Overwriting present at time " .. time ) end
+    self[ time ] = presentType
+  end
 end
 
 function love.update( dt )
