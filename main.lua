@@ -85,6 +85,7 @@ function love.load()
   camera = Camera( 0, 0 )
   conveyorOffset = 0
   presentOffset = 0
+  presents = {}
   presentQueue = {}
   
   function presentQueue:addPresent( presentType, delay )
@@ -104,6 +105,17 @@ function love.update( dt )
   conveyorOffset = conveyorOffset + conveyorMovement
   presentOffset = presentOffset - conveyorMovement
   if presentOffset <= -552 then presentOffset = 0 end
+  
+  local roundedTime = lume.round( curTime, 0.1 )
+  local presentType = presentQueue[ roundedTime ]
+  
+  if presentType then
+    presentQueue[ roundedTime ] = nil
+    local present = presentTypes[ presentType ]
+    present.offset = -presentOffset
+    table.insert( presents, present )
+  end
+  
   lurker.update()
 end
 
