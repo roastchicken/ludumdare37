@@ -30,6 +30,40 @@ local lovecallbacknames = {
   "quit",
 }
 
+local presentTypes =
+{
+  [ 1 ] =
+  {
+    boxColor =
+    {
+      { 255, 0, 0 },
+      { 255, 0, 0 },
+      { 255, 0, 0 }
+    },
+    ribbonColor = { 0, 255, 0 }
+  },
+  [ 2 ] =
+  {
+    boxColor =
+    {
+      { 0, 255, 0 },
+      { 0, 255, 0 },
+      { 0, 255, 0 }
+    },
+    ribbonColor = { 255, 0, 0 }
+  },
+  [ 3 ] =
+  {
+    boxColor =
+    {
+      { 25, 255, 255 },
+      { 25, 255, 255 },
+      { 25, 255, 255 }
+    },
+    ribbonColor = { 0, 255, 0 }
+  },
+}
+
 function love.load()
   love.window.setMode( 620, 360, { x = 1300, y = 245, msaa = 4 } )
   love.window.setTitle( "Ludum Dare 37 Game" )
