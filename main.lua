@@ -102,8 +102,8 @@ function love.update( dt )
     conveyorOffset = 0
   end
   conveyorOffset = conveyorOffset + conveyorMovement
-  presentOffset = presentOffset + conveyorMovement
-  if presentOffset >= 230 then presentOffset = -322 end
+  presentOffset = presentOffset - conveyorMovement
+  if presentOffset <= -552 then presentOffset = 0 end
   lurker.update()
 end
 
@@ -144,17 +144,17 @@ function love.draw()
     -- box
     
     love.graphics.setColor( { 8, 142, 14 } )
-    love.graphics.polygon( "fill", -12 - presentOffset, -18, 38 - presentOffset, -18, 50 - presentOffset, 0, 0 - presentOffset, 0 ) -- top
+    love.graphics.polygon( "fill", 310 + presentOffset, -18, 360 + presentOffset, -18, 372 + presentOffset, 0, 322 + presentOffset, 0 ) -- top
     love.graphics.setColor( { 6, 126, 12 } )
-    love.graphics.rectangle( "fill", 0 - presentOffset, 0, 50, 50 ) -- front
+    love.graphics.rectangle( "fill", 322 + presentOffset, 0, 50, 50 ) -- front
     love.graphics.setColor( { 5, 116, 10 } )
-    love.graphics.polygon( "fill", -12 - presentOffset, -18, 0 - presentOffset, 0, 0 - presentOffset, 50, -12 - presentOffset, 32 ) -- left
+    love.graphics.polygon( "fill", 310 + presentOffset, -18, 322 + presentOffset, 0, 322 + presentOffset, 50, 310 + presentOffset, 32 ) -- left
     
     -- front ribbon
     
     love.graphics.setColor( { 147, 9, 9 } )
-    love.graphics.rectangle( "fill", 20 - presentOffset, 0, 10, 50 )
-    love.graphics.rectangle( "fill", 0 - presentOffset, 20, 50, 10 )
+    love.graphics.rectangle( "fill", 342 + presentOffset, 0, 10, 50 )
+    love.graphics.rectangle( "fill", 322 + presentOffset, 20, 50, 10 )
     
   camera:detach()
 end
