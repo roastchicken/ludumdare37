@@ -158,22 +158,26 @@ function love.draw()
     
   love.graphics.setStencilTest()
   
-  -- present
+  -- presents
     
-    -- box
-    
-    love.graphics.setColor( { 8, 142, 14 } )
-    love.graphics.polygon( "fill", 310 + presentOffset, -18, 360 + presentOffset, -18, 372 + presentOffset, 0, 322 + presentOffset, 0 ) -- top
-    love.graphics.setColor( { 6, 126, 12 } )
-    love.graphics.rectangle( "fill", 322 + presentOffset, 0, 50, 50 ) -- front
-    love.graphics.setColor( { 5, 116, 10 } )
-    love.graphics.polygon( "fill", 310 + presentOffset, -18, 322 + presentOffset, 0, 322 + presentOffset, 50, 310 + presentOffset, 32 ) -- left
-    
-    -- front ribbon
-    
-    love.graphics.setColor( { 147, 9, 9 } )
-    love.graphics.rectangle( "fill", 342 + presentOffset, 0, 10, 50 )
-    love.graphics.rectangle( "fill", 322 + presentOffset, 20, 50, 10 )
+    for k, present in ipairs( presents ) do
+      local offset = present.offset
+      
+      -- box
+      
+      love.graphics.setColor( present.boxColor[ 1 ] ) -- top color
+      love.graphics.polygon( "fill", 310 + presentOffset + offset, -18, 360 + presentOffset + offset, -18, 372 + presentOffset + offset, 0, 322 + presentOffset + offset, 0 ) -- top
+      love.graphics.setColor( present.boxColor[ 2 ] ) -- front color
+      love.graphics.rectangle( "fill", 322 + presentOffset + offset, 0, 50, 50 ) -- front
+      love.graphics.setColor( present.boxColor[ 3 ] ) -- left color
+      love.graphics.polygon( "fill", 310 + presentOffset + offset, -18, 322 + presentOffset + offset, 0, 322 + presentOffset + offset, 50, 310 + presentOffset + offset, 32 ) -- left
+      
+      -- front ribbon
+      
+      love.graphics.setColor( present.ribbonColor )
+      love.graphics.rectangle( "fill", 342 + presentOffset + offset, 0, 10, 50 )
+      love.graphics.rectangle( "fill", 322 + presentOffset + offset, 20, 50, 10 )
+    end
     
   camera:detach()
 end
